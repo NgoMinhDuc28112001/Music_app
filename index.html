@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vợ iuuu 💗💗💗</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+
+    <!-- MAIN PLAYER WRAPPER -->
+    <main class="player-container">
+        
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>MUSIC</h1>
+                    <p>Trình phát nhạc & video</p>
+                </div>
+            </div>
+            <span id="playlist-count" class="badge">0 bài hát</span>
+        </header>
+
+        <!-- TOAST NOTIFICATION -->
+        <div id="toast-msg" class="toast hidden">
+            <i class="fa-solid fa-circle-info"></i>
+            <span id="toast-text">Thông báo</span>
+        </div>
+
+        <!-- HERO ARTWORK VIDEO CONTAINER -->
+        <section id="artwork-container" class="hero-artwork paused">
+            <div class="gif-frame">
+                <!-- Direct HTML5 MP4 Video Element -->
+                <video id="track-art" class="video-art" playsinline loop muted preload="auto"></video>
+
+                <!-- Dynamic Floating Info Badge over Video -->
+                <div class="track-info-badge">
+                    <div id="visualizer-bar" class="equalizer paused">
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                    </div>
+                    <div class="track-details">
+                        <h2 id="track-title">Đang tải bài hát...</h2>
+                        <p id="track-artist">Nghệ sĩ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTROL PANEL -->
+        <section class="control-panel">
+            <!-- Progress Bar & Timers -->
+            <div class="progress-section">
+                <input type="range" id="progress-bar" value="0" min="0" max="100">
+                <div class="time-display">
+                    <span id="current-time">00:00</span>
+                    <span id="total-duration">00:00</span>
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <!-- Volume Control Area -->
+                <div class="volume-container">
+                    <button id="btn-mute" class="icon-btn" title="Tắt/Mở tiếng">
+                        <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+                    </button>
+                    <input type="range" id="volume-bar" value="80" min="0" max="100">
+                </div>
+
+                <!-- Central Transport Control Buttons -->
+                <div class="main-buttons">
+                    <button id="btn-shuffle" class="icon-btn action-btn" title="Phát ngẫu nhiên">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
+
+                    <button id="btn-prev" class="icon-btn action-btn main-step" title="Bài trước">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+
+                    <button id="btn-play-pause" class="btn-play" title="Phát/Tạm dừng">
+                        <i class="fa-solid fa-play" id="play-icon"></i>
+                    </button>
+
+                    <button id="btn-next" class="icon-btn action-btn main-step" title="Bài tiếp">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+
+                    <button id="btn-repeat" class="icon-btn action-btn" title="Lặp lại">
+                        <i class="fa-solid fa-repeat"></i>
+                        <span id="repeat-badge" class="repeat-badge hidden">1</span>
+                    </button>
+                </div>
+
+                <div class="layout-spacer"></div>
+            </div>
+        </section>
+
+        <!-- PLAYLIST SECTION -->
+        <section class="playlist-section">
+            <div class="playlist-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Danh Sách Bài Hát</h3>
+            </div>
+            <div id="playlist-container" class="playlist-grid">
+                <!-- Populated dynamically via JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Hidden HTML5 Audio Element -->
+    <audio id="audio-player" preload="metadata"></audio>
+
+    <!-- Custom JavaScript Module -->
+    <script src="app.js"></script>
+</body>
+</html>
